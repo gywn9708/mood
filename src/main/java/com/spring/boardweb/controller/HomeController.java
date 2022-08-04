@@ -15,8 +15,7 @@ import com.spring.boardweb.controller.api.NaverMovieApi;
 @RestController
 public class HomeController {
 	
-	//깃 연습 - cyh
-	//설정 실수해서 레포지토리 다시 만들고 재시도 - cyh
+	//효주수정
 	
 	@GetMapping("/")
 	public ModelAndView mainPage() throws ParseException {
