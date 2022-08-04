@@ -15,7 +15,7 @@ import com.spring.boardweb.controller.api.NaverMovieApi;
 @RestController
 public class HomeController {
 	
-	//효주수정
+	//효주수정111
 	
 	@GetMapping("/")
 	public ModelAndView mainPage() throws ParseException {
