@@ -1,0 +1,435 @@
+@charset "UTF-8";
+
+
+/*리스트 페이지 제목 부분 작성*/
+.page-top {
+    background-color: rgb(35, 35, 35);
+    padding: 40px 0;
+    margin: 84px 0 40px 0;
+}
+
+.page-title {
+    font-size: 24px;
+    line-height: 36px;   
+}
+
+
+/*페이지 콘텐츠 부분 작성*/
+form {
+    text-align: right;
+}
+
+.button {
+    background-color: rgba(153,13,13);
+    color: lightgray;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding : 8px 15px;
+}
+
+.button:hover {
+    background-color: rgb(128,11,11);
+}
+
+/*FQA 콘텐츠 부분 작성*/
+.Q-content {
+    background-color: rgb(35, 35, 35);
+    height: 300px;
+    border: 1px solid rgb(35, 35, 35);
+    border-radius: 5px;
+    padding: 50px 70px;
+}
+
+
+
+
+.table {
+    text-align: center;
+    width: 1260px;
+    margin: 0 auto;
+    border-collapse:collapse;
+}
+
+th {
+    color: lightgray;
+    
+    
+    padding: 15px 0;
+    text-align: center;
+}
+
+
+td {
+    border-bottom: 1px solid gray;
+    padding: 15px 0;  
+    
+}
+
+.subject {
+    text-align: center;
+}
+
+
+
+.list-title {
+    display: flex;  
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.list-title li {
+    margin: 0 auto;
+    text-align: center;
+    list-style: none;
+    background-color: rgb(35, 35, 35);
+    width: 420px;
+    height: 50px;
+}
+
+
+
+.list1 {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.list3 {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-item a {
+    display: block;
+    margin-top: 11px;
+}
+
+/*리스트 다시*/
+.section {
+    width: 160px;
+    text-align: center;
+    font-size: 15px;
+    
+}
+
+.title {
+    width: 800px;
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.date {
+    width: 260px;
+    padding-left: 40px;
+    font-size: 15px;
+    text-align: center;
+    
+}
+
+.accordion {
+    background-color: rgb(35, 35, 35);
+}
+
+#user_name {
+    width: 280px;
+    height: 34px;
+    padding: 0 20px;
+    background-color: rgb(35, 35, 35);
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid rgb(35, 35, 35);
+}
+
+a.button {
+    text-decoration: none;
+}
+
+form {
+    height: 42px;
+    margin-bottom: 5px;
+}
+
+/*상단바 부분*/
+.logo {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .logo1 {
+    vertical-align: middle;
+  }
+
+  button {
+    margin-bottom: auto;
+    justify-content: space-between;
+  }
+
+  .input-box {
+      text-align: center;
+      padding: 20px;
+  }
+
+  .nav-line {
+    width: 140px;
+  }
+
+  .container-fluid {
+    width: 100%;
+  }
+
+  .d-flex {
+    display: block;
+    margin: 0 200px;
+    width: 100%;
+  }
+
+  .mpos {
+    width: auto;
+    height: 100px;
+  }
+
+
+  h3 {
+    color: white;
+  }
+
+  .carousel-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .center-block1 {
+    width: 19%;
+  }
+
+  .center-block2 {
+    width: 19%;
+  }
+
+
+  .center-block3 {
+    width: 19%;
+  }
+
+  .center-block4 {
+    width: 19%;
+  }
+
+  .center-block5 {
+    width: 19%;
+  }
+
+  a.logo3 {
+    --bs-link-hover-color: none;
+    text-decoration: none;
+    color: lightgray;
+    font-weight: bold;
+  }
+
+  .navbar>.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    
+    
+  }
+
+  .wrapper-header .d-grid {
+        margin: 0 75px 0 0;
+  }
+
+  @media screen and (max-width: 1260px) {
+    
+    .wrapper-header .d-grid {
+      margin: 0;
+    }
+  }
+
+  .navbar-nav {
+        max-width: 1410px;
+        margin: 0 auto;
+  }
+
+  p.Q-content1 {
+    font-size: 36px;
+    color: rgba(153,13,13);
+    font-weight: bold;
+    margin: 0 auto;
+    height: 60px;
+    
+  
+  }
+
+  p.Q-content2 {
+    font-size: 16px;
+    color: lightgray;
+    line-height: 1.5rem;
+    margin: 0 auto;
+      
+}
+
+.Q-content0 {
+  margin-top: 10px;
+}
+
+.navbar-toggler {
+  --bs-border-width: 0;
+  
+}
+
+.button2 {
+  color: lightgray;
+  background-color: rgba(153,13,13);
+  border: 1px solid rgba(153,13,13);
+  width: 180px;
+  height: 45px;
+  border-radius: 100px;
+  float: right;  
+ 
+}
+
+.button2:hover {
+  background-color: rgb(128,11,11);
+}
+
+.button2_font {
+  font-weight: 600;
+}
+
+.phone {
+  width: 25px;
+  padding-bottom: 6px;
+}
+
+/* notice.html 안에 있던 스타일 */
+body {
+            background-color: rgb(41, 41, 41);
+        }
+
+        .accordion {
+            --bs-accordion-active-bg: rgb(41, 41, 41);
+            --bs-accordion-btn-bg : rgb(41, 41, 41);
+            --bs-accordion-btn-color : lightgray;
+            --bs-accordion-active-color : lightgray;
+            --bs-accordion-btn-icon-color : lightgray;
+            --bs-accordion-btn-focus-border-color: none; 
+            --bs-accordion-btn-focus-box-shadow : none;
+            --bs-accordion-btn-active-icon-color : lightgray;
+           
+            --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill= 'rgb(255, 255, 255)'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill= 'rgb(255, 255, 255)'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            --bs-accordion-inner-border-radius: none;
+        }
+       
+        .accordion-body {
+            background-color: rgba(0, 0, 0, 0.840);
+        }
+
+        .accordion-content {
+            color: lightgray;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .text-light {
+          font-weight: bold;
+      }
+
+        .accordion-item {
+            border: none;
+            border-bottom: 0.5px solid gray;
+        }
+
+        .page-title wrapper {
+            color: lightgray;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        small {
+            color: lightgray;
+        }
+
+        .list-title a {
+            color: lightgray;
+            text-decoration: none;
+            display: block;
+            margin-top: 13px;
+            font-weight: bold;
+        }
+
+        .table {
+            margin-bottom: 0;
+            border-top: 1px solid lightgray;
+            --bs-table-border-color: lightgray;
+        }
+
+        th {
+            height: 53.5px;
+            vertical-align: middle;
+        }
+        
+        
+        .title1 {
+            width: 160px;
+        }
+
+        .title2 {
+            width: 800px;
+        }
+
+        .title3 {
+            width: 300px;
+            text-align: center;
+        }
+
+        .accordion-button {
+            padding: 16px 20px 16px 0;   
+        }
+
+        .pagination {
+        margin-top: 20px;
+        --bs-pagination-bg: rgba(0, 0, 0, 0);
+        --bs-pagination-disabled-bg: rgba(0, 0, 0, 0);
+        --bs-pagination-border-width: 0;
+        --bs-pagination-color: lightgray;
+        --bs-pagination-hover-bg: none;
+        --bs-pagination-hover-color: red;
+        --bs-pagination-focus-bg: none;
+        --bs-pagination-focus-color: red;
+        --bs-pagination-focus-box-shadow:  0 0 0 0.25rem rgba(255, 0, 0, 0.25);
+        }
+        
+        .end p {
+            margin: 20px 0 100px 0;
+        }
+
+        /*상단바*/
+        .btn-secondary {
+          --bs-btn-bg: rgba(153,13,13);
+          --bs-btn-border-color: rgba(153,13,13);
+          --bs-btn-hover-bg: rgb(128,11,11);
+          --bs-btn-hover-border-color: rgb(128,11,11);
+        }
+
+        #fixed {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: rgb(41,41,41);
+          z-index: 1;
+       }
+
+       .navbar-toggler:focus {
+        box-shadow: 0 0 0;
+       }
+
+       .nodropdown {
+        padding: 8px 0;
+       }

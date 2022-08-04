@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	<head>
+		<meta charset="UTF-8">
+		<title>게시글</title>
+		
+		<th:block layout:fragment="css">
+			<link rel="stylesheet" th:href="@{/css/board.css}">
+		</th:block>
+		
+		<th:block layout:fragment="script">
+			<script>
+		  		$(function() {
+					$("#list .listcolor").css("background", "rgb(153,13,13)");
+				});		
+	  		</script>
+	  	</th:block>
+	  	
+	</head>
+	<body>
+		<header></header>
+		<div layout:fragment="content">
+			
+			<!--고객센터 부분-->
+		    <div class="page-top bg-rgba(100,100,100);">
+		    <p class="text-light wrapper" >고객센터</p>
+		    </div>
+		
+		    <!--board, FAQ, 1:1 부분-->
+		    <div class="content wrapper">
+		        <div class="content-body">
+				    <ul id="list" class="list-title">
+				        <li class="list1"><a th:href="@{/board/getNotice}">공지사항</a></li>
+				        <li><a th:href="@{/board/getFaq}">FAQ</a></li>
+				        <li class="list3 listcolor"><a th:href="@{/board/getAsk}">1:1문의</a></li>
+				    </ul>
+		
+				    <!--1:1 내용 부분-->
+				    <div class="Q-content">
+				        <div class="Q-content0">
+				        <p class="Q-content1">
+				            <img class="phone" src="/images/phone.png">1234-5678
+				        </p>
+				        <p class="Q-content2">
+				            <small>※ 평일 09:00-18:00 | 점심시간 12:00-13:00 | 주말 및 공휴일 휴무</small><br>
+				            <br>
+				            MOOD 서비스 이용 시 불편사항이나 문의사항을 1:1 문의로 보내주시면<br>
+				            신속하고 친절하게 안내해 드리겠습니다!
+				        </p>
+				      </div>
+				        <button class="button2" type="button">
+				        <a class="button2_font" href="#" >1:1 문의하기</a>
+				        </button>
+				    </div> 
+				</div>
+			</div>
+			
+		</div>
+		<footer></footer>
+		
+	</body>
+</html>

@@ -1,0 +1,264 @@
+    body {
+      background-color: rgba(41, 41, 41);
+    }
+    
+    .logo {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .logo1 {
+      width: 700px;
+      height: 700px;
+    }
+
+    button {
+      margin-bottom: auto;
+      justify-content: space-between;
+    }
+
+    .input-box {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .line {
+      width: 140px;
+    }
+
+    .line2 {
+      width: 100%;
+      color: white;
+    }
+
+    .line3 {
+      width: 100%;
+      color: white;
+      margin-top: 256px;
+    }
+
+    .line4 {
+      width: 100%;
+      color: white;
+    }
+
+    .line5 {
+      width: 100%;
+      color: white;
+      margin-bottom: -100px;
+      
+    }
+
+    .container-fluid {
+      width: 100%;
+      padding: 0 24px 0 12px;
+    }
+
+    /*검색창 크기*/
+    .sbar {
+      margin: 0 auto;
+      width: 40%;
+    }
+
+
+    .d-flex {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    
+    a:hover {
+      color: white;
+    }
+
+    .mpos {
+      width: auto;
+      height: 100px;
+    }
+
+  
+    h3 {
+      color: white;
+      font-weight: bold;
+      padding: 0 0 0 30px;
+      margin: 0 auto;
+    }
+
+    .carousel-item {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+      
+    }
+
+    img.center-block1:hover {
+
+      cursor: pointer;
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    img.center-block2:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    
+    img.center-block3:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05); 
+      transition: all 0.3s ease-in-out;
+    }
+
+    img.center-block4:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05); 
+      transition: all 0.3s ease-in-out;
+    }
+
+    img.center-block5:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05); 
+      transition: all 0.3s ease-in-out;
+    }
+
+    .center-block1 {
+      width: 19%;
+    }
+
+    .center-block2 {
+      width: 19%;
+    }
+
+
+    .center-block3 {
+      width: 19%;
+    }
+
+    .center-block4 {
+      width: 19%;
+    }
+
+    .center-block5 {
+      width: 19%;
+    }
+
+    .log_button {
+      width: 100%;
+      height: 50px;
+      justify-content: center;
+      color: lightgray;
+      background-color: rgb(153, 13, 13);
+      border: 2px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .btn-secondary {
+    --bs-btn-bg: rgb(153, 13, 13);
+    --bs-btn-border-color: rgb(153, 13, 13);
+
+    --bs-btn-hover-bg: rgb(128,11,11);
+    --bs-btn-hover-border-color: rgb(128,11,11);
+    }
+
+    a.logo2 {
+      color: lightgray;
+      font-weight: bold;
+    }
+   
+   
+
+    .navbar-toggler {
+      --bs-border-width: 0;
+    }
+
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0;
+   }
+
+/*푸터 부분 */
+    .wrapper {
+        max-width: 1260px;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }   
+      
+    footer p {
+        font-size: 0.875rem;
+        color: lightgray;
+    }
+
+    .footer-line {
+        margin: 80px 0 0 0;
+        border: 1px solid gray;
+    }
+
+    .end p {
+        margin: 20px 0 100px 0;
+    }
+
+    #fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(41,41,41);
+      z-index: 1;
+   }
+
+  
+
+   .navbar-dark {
+    height: 84px;
+   }
+
+   .curtain_up {
+    width: 100%;
+    height: 1000px;
+    margin-top: 0;
+   }
+
+   .mylist {
+    margin-top: 200px;
+   }
+
+   .nodropdown {
+    padding: 8px 0;
+   }
+
+   .logo1 {
+    width: 600px;
+    height: 600px;
+   }

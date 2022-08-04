@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	<head>
+		<meta charset="UTF-8">
+		<title>FAQ 수정</title>
+	</head>
+	<body>
+		<header></header>
+		<div layout:fragment="content" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+			<h3>FAQ 수정</h3>
+			<form action="/board/insertFaq" method="post">
+				<input type="hidden" name="faqSeq" th:value="${faq.faqSeq}">
+				<table border="1" style="border-collapse: collapse">
+					<tr>
+						<td style="background: red; width: 70px;">
+							제목
+						</td>
+						<td style="text-align: left;">
+							<input type="text" name="faqTitle" 
+							th:value="${faq.faqTitle}" required>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="background: red; width: 70px;">
+							구분
+						</td>
+						<td style="text-align: left;">
+							<select id="faqKind" name="faqKind" required>
+		                        <option value="">구분</option>
+		                        <option value="서비스 공지">서비스 공지</option>
+		                        <option value="컨텐츠 공지">컨텐츠 공지</option>
+                    		</select>	       					
+						</td>
+					</tr>
+
+					<tr>
+						<td style="background: red; width: 70px;">
+							내용
+						</td>
+						<td style="text-align: left;">
+							<textarea name="faqContent" cols="40" rows="10" 
+							th:text="${faq.faqContent}" required></textarea>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2" align="center">
+							<button type="submit">게시글 수정</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<hr/>
+			<a href="/board/getFaq">공지사항 목록</a>
+		</div>
+		<footer></footer>
+	</body>
+</html>

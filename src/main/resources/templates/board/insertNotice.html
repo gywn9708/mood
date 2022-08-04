@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	<head>
+		<meta charset="UTF-8">
+		<title>공지사항 등록</title>
+		<!--<th:block layout:fragment="css">
+			<link rel="stylesheet" th:href="@{/css/test.css}">
+		</th:block>
+		<th:block layout:fragment="script">
+			<script>
+				$(function() {
+					alert("hello spring boot");
+				});
+			</script>
+		</th:block>-->
+	</head>
+	<body>
+		<header></header>
+		<div layout:fragment="content" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+			<h3>공지사항 등록</h3>
+			<form action="/board/updateNotice" method="post">
+				<table border="1" style="border-collapse: collapse">
+					<tr>
+						<td style="background: red; width: 70px;">
+							제목
+						</td>
+						<td style="text-align: left;">
+							<input type="text" name="noticeTitle" required>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="background: red; width: 70px;">
+							구분
+						</td>
+						<td style="text-align: left;">
+							<select id="noticeKind" name="noticeKind" required>
+		                        <option value="">구분</option>
+		                        <option value="서비스 공지">서비스 공지</option>
+		                        <option value="컨텐츠 공지">컨텐츠 공지</option>
+                    		</select>	       					
+						</td>
+					</tr>
+
+					<tr>
+						<td style="background: red; width: 70px;">
+							내용
+						</td>
+						<td style="text-align: left;">
+							<textarea name="noticeContent" cols="40" rows="10" required></textarea>
+						</td>
+					</tr>
+					
+					<!--
+					<tr>
+						<td style="background: orange; width: 70px;">
+							등록일
+						</td>
+						<td style="text-align: left;">
+							20220801
+						</td>
+					</tr>
+					-->
+
+					<tr>
+						<td colspan="2" align="center">
+							<button type="submit">새 글 등록</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<hr/>
+			<a href="/board/getNotice">공지사항 목록</a>
+		</div>
+		<footer></footer>
+	</body>
+</html>

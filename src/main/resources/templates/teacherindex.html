@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	  <head>
+	  	<meta charest="UTF_8">
+	  	<title>index</title>
+	  	<th:block layout:fragment="script">
+	  		<script th:inline="javascript">
+	  			$(function() {
+					/*<[CDATA[*/
+					const data = /*[[${content}]]*/;
+					/*]]>*/
+					console.log(data);
+				});
+	  		</script>
+	  	</th:block> 
+	  </head>
+	  <body>
+	  	<div layout:fragment="content">
+	  	 <!--중앙 로고-->
+      <div class="logo">
+        <a href="#">
+          <img class="logo1" src="images/logo_big2.png" alt="로고">
+        </a>     
+      </div>
+    
+      
+      <!--검색창-->
+      <nav class="navbar navbar-light bg-rgba(0, 0, 0, 0.960)">
+        <!--검색창 크기-->
+        <div class="sbar">
+          <div class="container-fluid">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="작품명을 입력해 주세요" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav><br><br>
+      
+      <!--나만의 리스트-->
+      <h3 class = "mylist">M O O D&nbsp; L I S T</h3>
+
+      <!-- <hr class="line4"> -->
+       
+      <div class>
+        <div id="carouselExampleControls0" class="carousel slide;" 
+         data-bs-interval="false">
+         <div class="carousel-inner center-block ">
+           <div class="carousel-item active" >
+             <a href="mylist1.html">
+             <img src="images/user_profile_nickname_1.png" class="center-block1 " style="margin-right: 50px" alt="...">
+             </a>
+             <a href="mylist2.html">
+             <img src="images/user_profile_nickname_2.png" class="center-block2 " style="margin-right: 50px" alt="...">
+             </a>
+             <a href="mylist3.html">
+             <img src="images/user_profile_nickname_3.png" class="center-block3 " style="margin-right: 50px" alt="...">
+             </a>
+             <a href="mylist4.html">
+             <img src="images/user_profile_nickname_4.png" class="center-block4 " alt="...">
+             </a>
+             
+             
+            </div>
+           
+           <div class="carousel-item ">
+             <img src="images/user_profile_nickname.png" class="center-block1 " style="margin-right: 50px" alt="...">
+             <img src="images/user_profile_nickname.png" class="center-block1 " style="margin-right: 50px" alt="...">
+             <img src="images/user_profile_nickname.png" class="center-block1 " style="margin-right: 50px" alt="...">
+             <img src="images/user_profile_nickname.png" class="center-block1 " alt="...">
+           </div>
+           
+           
+           <div class="carousel-item">
+            <img src="images/user_profile_nickname.png" class="center-block1 " style="margin-right: 50px" alt="...">
+            <img src="images/user_profile_nickname.png" class="center-block2 " style="margin-right: 50px" alt="...">
+            <img src="images/user_profile_nickname.png" class="center-block3 " style="margin-right: 50px" alt="...">
+            <img src="images/user_profile_nickname.png" class="center-block4 " alt="...">
+             </div>
+           </div>
+          
+          <!--버튼 따로 설정
+          data-bs-target="#carouselExampleControls0"
+          이름 다르게 할 것-->
+          <button class="carousel-control-prev" type="button" 
+           data-bs-target="#carouselExampleControls0" 
+           data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" 
+           data-bs-target="#carouselExampleControls0" 
+           data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- <hr class="line4"> -->
+       </div><br><br>
+
+       
+       <h3>B E S T&nbsp; M O V I E</h3>
+      
+
+      <!-- <hr class="line4"> -->
+       
+      <div>
+        <div id="carouselExampleControls1" class="carousel slide ;" 
+         data-bs-interval="false">
+         <div class="carousel-inner center-block ">
+           <div class="carousel-item active" >
+           	 <a th:each="info, stat : ${content}" th:if="${stat.count < 6}" th:href="@{/contents/getContent/마녀2}">
+              <img th:src="${info.image}"class="center-block1 " alt="movie1">
+             </a>
+             <!--<a th:href="@{/contents/getContent/마녀2}">
+              <img src="#"class="center-block1 " alt="movie1">
+             </a>
+             <a href="#">
+              <img src="#" class="center-block2 " alt="movie2">
+             </a>
+             <a href="#">
+              <img src="#" class="center-block3 " alt="movie3">
+             </a>
+             <a href="#">
+              <img src="#" class="center-block4 " alt="movie4">
+             </a>
+             <a href="#">
+              <img src="#" class="center-block5 " alt="movie5">
+             </a>-->
+           </div>
+           
+           <div class="carousel-item ">
+            <a href="">
+              <img src="images/movie/건축학개론_포스터.jfif" class="center-block1 " alt="movie6">
+             </a>
+             <a href="">
+              <img src="images/movie/나를찾아줘_포스터.jfif" class="center-block2 " alt="movie7">
+             </a>
+             <a href="">
+              <img src="images/movie/셔터_포스터.jfif" class="center-block3 " alt="movie8">
+             </a>
+             <a href="">
+              <img src="images/movie/헤어질결심_포스터.jfif" class="center-block4 " alt="movie9">
+             </a>
+             <a href="">
+              <img src="images/movie/타이타닉_포스터.jfif" class="center-block5 " alt="movie10">
+             </a>
+           </div>
+         </div>
+         
+          <button class="carousel-control-prev" type="button" 
+           data-bs-target="#carouselExampleControls1" 
+           data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" 
+           data-bs-target="#carouselExampleControls1" 
+           data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- <hr class="line4"> -->
+       </div><br><br>
+
+       <h3>B E S T&nbsp; D R A M A</h3>
+      
+       <!-- <hr class="line4"> -->
+       
+      <div>
+        <div id="carouselExampleControls2" class="carousel slide ;" 
+         data-bs-interval="false">
+         <div class="carousel-inner center-block " >
+           <div class="carousel-item active" >
+            <img src="images/drama/갯마을차차차_포스터.jfif" class="center-block1 " alt="...">
+            <img src="images/drama/그해우리는_포스터.jfif" class="center-block2 " alt="...">
+            <img src="images/drama/나의해방일지_포스터.jfif" class="center-block3 " alt="...">
+            <img src="images/drama/스물다섯스물하나_포스터.jfif" class="center-block4 " alt="...">
+            <img src="images/drama/완다비전_포스터.jfif" class="center-block5 " alt="...">
+           </div>
+           
+           <div class="carousel-item ">
+             <img src="images/drama/로키_포스터.jfif" class="center-block1 " alt="...">
+             <img src="images/drama/보좌관_포스터.jpg" class="center-block2 " alt="...">
+             <img src="images/drama/사내맞선_포스터.jfif" class="center-block3 " alt="...">
+             <img src="images/drama/유미의세포들_포스터.jfif" class="center-block4 " alt="...">
+             <img src="images/drama/지리산_포스터.jfif" class="center-block5 " alt="...">
+           </div>
+           
+          <button class="carousel-control-prev" type="button" 
+           data-bs-target="#carouselExampleControls2" 
+           data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" 
+           data-bs-target="#carouselExampleControls2" 
+           data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+	  	</div>
+	  </body>
+	  

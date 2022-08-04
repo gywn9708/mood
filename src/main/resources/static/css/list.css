@@ -1,0 +1,153 @@
+
+    .btn-secondary {
+    --bs-btn-bg: rgb(153, 13, 13);
+    --bs-btn-border-color: rgb(153, 13, 13);
+
+    --bs-btn-hover-bg: rgb(128,11,11);
+    --bs-btn-hover-border-color: rgb(128,11,11);
+    }
+    
+    .logo {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .logo1 {
+      vertical-align: middle;
+    }
+
+    button {
+      margin-bottom: auto;
+      justify-content: space-between;
+    }
+
+    .input-box {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .line {
+      width: 140px;
+    }
+
+    .container-fluid {
+      width: 100%;
+    }
+
+    .d-flex {
+      display: block;
+      margin: 0 200px;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .mpos {
+      width: auto;
+      height: 100px;
+    }
+  
+    h3 {
+      color: white;
+    }
+
+    .carousel-item {
+      width: 100%;
+      text-align: center;
+    }
+
+    .center-block1 {
+      width: 19%;
+    }
+
+    .center-block2 {
+      width: 19%;
+    }
+
+    .center-block3 {
+      width: 19%;
+    }
+
+    .center-block4 {
+      width: 19%;
+    }
+
+    .center-block5 {
+      width: 19%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .user_img {
+      display: block;
+      justify-content: center;
+      margin-left: auto;
+    }
+      
+    .prof {
+      width: 300px;
+      height: 300px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .mline {
+      border: 1px solid lightgray;
+      
+    }
+
+    .item {
+      display: flex;
+      justify-content:space-around;
+      margin: 0 5px;
+    }
+
+    .item1 {
+      padding: 5px;
+    }
+
+    .user_message p{
+      margin-top: 20px;
+      font-weight: bold;
+      color: lightgray;
+      text-align: center;
+    }
+
+    .logo {
+    margin-top: 84px;
+   }
+
+   .navbar-dark {
+    height: 84px;
+   }
+
+   .nodropdown {
+    padding: 8px 0;
+   }
+
+  .navbar-toggler {
+    --bs-border-width: 0;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0;
+  }
+
+  .container-fluid {
+	width: 100%;
+	padding: 0 24px 0 12px;
+	}
+	

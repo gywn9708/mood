@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	<head>
+		<meta charset="UTF-8">
+		<title>게시글</title>
+		
+		<th:block layout:fragment="css">
+			<link rel="stylesheet" th:href="@{/css/list.css}">
+		</th:block>
+		
+	</head>
+	
+	<body>
+		<header></header>
+		<div layout:fragment="content">
+
+        <div class="user_img">
+            <img class="prof" src="/images/user_profile_nickname_1.png" alt="user_profile">
+        </div>
+
+        <div class="user_message">
+          <p>인생 영화를 모아 보았습니다.</p>
+          <p>재미있게 감상한 작품들입니다. 재미있게 감상한 작품들입니다.</p>
+          <p>@ilikemovie</p>
+        </div>
+
+      </header><br><br>
+      <hr class="mline">
+
+          <!--사진-->
+          <div class="item">
+            <a href="#">
+            <img src="/images/movie/건축학개론_포스터.jfif" alt="포스터1" class="item1">
+            </a>
+            <a href="detail_쥬라기.html">
+            <img src="/images/movie/쥬라기월드_포스터.jpg" alt="포스터2" class="item1">
+            </a>
+            <a href="detail_마녀2.html">
+            <img src="/images/movie/마녀2_포스터.jpg" alt="포스터3" class="item1">
+            </a>
+            <a href="detail_미나리.html">
+            <img src="/images/movie/미나리_포스터.jfif" alt="포스터4" class="item1">
+            </a>
+          </div>
+        
+          <div class="item">
+            <p>건축학개론</p>
+            <p>쥬라기월드</p>
+            <p>마녀2</p>
+            <p>미나리</p>
+          </div>
+          <br>
+          
+          <hr class="mline">
+          <div class="item">
+            <a href="">
+            <img src="/images/movie/메멘토_포스터.jfif" alt="포스터5" class="item1">
+            </a>
+            <a href="">
+            <img src="/images/movie/헤어질결심_포스터.jfif" alt="포스터6" class="item1">
+            </a>
+            <a href="">
+            <img src="/images/movie/스타워즈_포스터.jfif" alt="포스터7" class="item1">
+            </a>
+            <a href="">
+            <img src="/images/movie/화양연화_포스터.jfif" alt="포스터8" class="item1">
+            </a>
+          </div>
+        
+          <div class="item">
+            <p>메멘토</p>
+            <p>헤어질결심</p>
+            <p>스타워즈</p>
+            <p>화양연화</p>
+          </div>
+	
+
+        	
+		</div>
+		<footer></footer>
+	</body>
+</html>

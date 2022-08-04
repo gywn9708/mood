@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	<head>
+		<meta charset="UTF-8">
+		<title>FAQ</title>
+		
+		<th:block layout:fragment="css">
+			<link rel="stylesheet" th:href="@{/css/board.css}">
+		</th:block>
+		
+		<th:block layout:fragment="script">
+			<script>
+		  		$(function() {
+					$("#list .listcolor").css("background", "rgb(153,13,13)");
+				});		
+	  		</script>
+	  	</th:block>
+		
+	</head>
+	<body>
+		<header></header>
+		<div layout:fragment="content">
+		
+		
+	<!--고객센터 부분-->
+    <div class="page-top bg-rgba(100,100,100);">
+    <p class="text-light wrapper" >고객센터</p>
+    </div>
+
+  	<!--board, FQA, 1:1 부분-->  
+    <div class="content wrapper">
+        <div class="content-body">
+    <ul id="list" class="list-title">
+        <li class="list1" ><a th:href="@{/board/getNotice}">공지사항</a></li>
+        <li class="listcolor"><a th:href="@{/board/getFaq}">FAQ</a></li>
+        <li class="list3"><a th:href="@{/board/getAsk}">1:1문의</a></li>
+    </ul>
+    
+    <!-- 관리자의 게시글 등록 -->
+  	<div style="display: block; margin: 20px auto;">
+		<button type="button" class="button"
+		th:if="${session.loginUser.userId eq 'admin'}">
+			<a href="/board/insertFaq">FAQ 등록</a>
+		</button>
+	</div>
+    
+ <!--검색 부분-->
+ <form id="searchForm" action="/board/getFaq" method="get">
+    <select name="searchCondition">
+		<option value="all" th:selected="${searchCondition eq 'all'}">전체</option>
+		<option value="title" th:selected="${searchCondition eq 'title'}">제목</option>
+		<option value="content" th:selected="${searchCondition eq 'content'}">내용</option>
+		<option value="kind" th:selected="${searchCondition eq 'kind'}">구분</option>
+	</select>
+	<label for="searchKeyword"></label>
+	<input type="text" id="searchKeyword" name="searchKeyword" th:value="${searchKeyword}" placeholder="궁금하신 점을 입력해 주세요">
+	<button type="button" id="btnSearch" class="button>">검색</button>
+ </form>
+
+  <!--아코디언 제목 부분-->
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="title1">구분</th>
+            <th class="title2">제목</th>
+            <th class="title3"></th>
+        </tr>
+        </thead>
+    </table>
+        
+    <!--아코디언 부분-->
+    
+    <!--
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingone">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseone" aria-expanded="false" aria-controls="panelsStayOpen-collapseone">
+                      <div class="section">서비스/콘텐츠</div>
+                      <div class="title">크롬 캐스트 또는 AirPlay 연결이 안돼요.</div>
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseone" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingone">
+                  <div class="accordion-body">
+                      <p class="accordion-content">
+                        크롬 캐스트 또는 AirPlay와 모바일 기기가 동일한 네트워크로 연결됐을 때 이용이 가능합니다.<br>
+                        연결된 와이파이가 동일한지 확인해 주세요.<br>
+                      </p>
+                  </div>
+                </div>
+              </div>
+      -->
+
+		<div class="accordion" id="accordionPanelsStayOpenExample" th:each="faq, stat : ${faqList}">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingone">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseone" aria-expanded="false" aria-controls="panelsStayOpen-collapseone">
+                      <div class="section" th:text="${faq.faqKind}"></div>
+                      <div class="title" th:text="${faq.faqTitle}"></div>
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseone" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingone">
+                  <div class="accordion-body">
+                      <p class="accordion-content" th:text="${faq.faqContent}"></p>
+                  	  <button type="button" id="btnUpdate" class="badge"
+                  	  th:if="${session.loginUser.userId eq 'admin'}">
+                      	<a th:href="@{/board/updateFaq/{faqSeq} (faqSeq=${faq.faqSeq})}" class="text-danger">
+                      	수정</a>
+                      </button>
+                      <button type="button" id="btnDelete" class="badge"
+                      th:if="${session.loginUser.userId eq 'admin'}">
+                      	<a th:href="@{/board/deleteFaq/{faqSeq} (faqSeq=${faq.faqSeq})}" class="text-danger">
+                      	삭제</a>
+                  
+                  
+                  </div>
+                </div>
+              </div>
+              
+          </div>
+ 		
+
+
+<!--페이지네이션 부분-->
+<div style="text-align: center;">
+	<ul class="pagination" th:with="pageNumber = ${faqList.pageable.pageNumber},
+									pageSize = ${faqList.pageable.pageSize},
+									totalPages = ${faqList.totalPages},
+									startPage = ${T(java.lang.Math).floor(pageNumber / pageSize) * pageSize + 1},
+									tempEndPage = ${startPage + pageSize - 1},
+									endPage = ${tempEndPage > totalPages ? totalPages : tempEndPage}">
+		<li class="pagination_button" th:if="${pageNumber > 0}">
+			<a th:href="@{/board/getFaq(page=${pageNumber - 1}, searchCondition=${searchCondition}, searchKeyword=${searchKeyword})}">Previous</a>
+		</li>
+		
+		
+		<li class="pagination_button" th:each="page : ${#numbers.sequence(startPage, endPage)}">
+			<a th:href="@{/board/getFaq(page=${page - 1}, searchCondition=${searchCondition}, searchKeyword=${searchKeyword})}" th:text="${page}"></a>
+		</li>
+		
+		
+		<li class="pagination_button" th:if="${pageNumber < totalPages - 1}">
+			<a th:href="@{/board/getFaq(page=${pageNumber + 1}, searchCondition=${searchCondition}, searchKeyword=${searchKeyword})}">Next</a>
+		</li>
+	</ul>
+</div>
+  
+  
+</div>
+</div>
+		
+			
+		</div>
+		
+		<footer></footer>
+		
+	</body>
+</html>

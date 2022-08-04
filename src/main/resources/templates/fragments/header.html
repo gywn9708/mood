@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+	  <head>
+	  	<meta charset="UTF-8">
+	  	<title>header</title>
+    	
+    	<th:block layout:fragment="css"></th:block>
+    	
+	  </head>
+	  
+	  <body>
+		  <header th:fragment="header">
+			<div class="fixed">
+		    <nav class="navbar navbar-dark bg-rgba(0, 0, 0, 0.960)">
+		        <div class="container-fluid">
+		          <div>
+		            <button class="navbar-toggler" type="button" 
+		              data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" 
+		              aria-controls="navbarToggleExternalContent" aria-expanded="false" 
+		              aria-label="Toggle navigation">
+		              <span class="navbar-toggler-icon"></span>
+		            </button>
+		            <a th:href="@{/}">
+		              <img src="/images/MOOD.png" class="logo2" alt="logo2">
+		            </a>
+		          </div>
+		          <div class="d-grid gap-2 d-md-flex justify-content-md-end">  
+			          <ul class="user-nav" style="display: contents; list-style: none;">
+					
+						<div th:if="${session.loginUser eq null}" th:remove="tag">
+							<li>
+								<button class="btn btn-secondary btn-sm" type="button">
+		                			<a href="/user/login" class="logo2">로그인</a>
+		                		</button>
+							</li>
+							<li>
+								<button class="btn btn-secondary btn-sm" type="button">
+		                			<a href="/user/join" class="logo2">회원가입</a>
+		                		</button>
+							</li>
+						</div>
+						
+						<div th:if="${session.loginUser ne null}" th:remove="tag">
+							<li>
+								<button class="btn btn-secondary btn-sm" type="button">
+		                			<a href="/mypage/getMypage" th:text="${session.loginUser.userId} + 님 "> </a>
+		                		</button>
+							</li>
+							<li>
+								<button class="btn btn-secondary btn-sm" type="button">
+		                			<a href="/user/logout">로그아웃</a>
+		                		</button>				
+							</li>
+						</div>
+					</ul>
+		          </div>		          
+		        </div>
+		     </nav>
+		     
+		      <div class="collapse" id="navbarToggleExternalContent">
+		        <div class="bg-dark p-4">    
+		          <ul class="navbar-nav text-white me-auto"> 
+		            <li class="nav-item">
+		              <a th:href="@{/}" class="nav-link">H O M E</a>
+		            </li>
+		            <li class="nav-item dropdown">
+		              <a href="" class="nav-link dropdown-toggle"
+		               data-bs-toggle="dropdown">장르별 영화</a>
+		                <div class="dropdown-menu">
+		                  <a href="#" class="dropdown-item">액션</a>
+		                  <a href="#" class="dropdown-item">드라마</a>
+		                  <a href="#" class="dropdown-item">코미디</a>
+		                  <a href="#" class="dropdown-item">멜로/로맨스</a>
+		                  <a href="#" class="dropdown-item">범죄/공포</a>
+		                  <a href="#" class="dropdown-item">미스터리/스릴러</a>
+		                  <a href="#" class="dropdown-item">판타지/SF/어드벤처</a>
+		                  <a href="#" class="dropdown-item">애니메이션/가족</a>
+		                </div>
+		            </li>
+		            <li class="nav-item dropdown">
+		              <a href="" class="nav-link dropdown-toggle"
+		               data-bs-toggle="dropdown">장르별 드라마</a>
+		                <div class="dropdown-menu">
+		                  <a href="#" class="dropdown-item">가족</a>
+		                  <a href="#" class="dropdown-item">시트콤</a>
+		                  <a href="#" class="dropdown-item">사극</a>
+		                </div>
+		            </li>
+		            <li class="nav-item nodropdown">
+		              <a href="/list/getList">M O O D  L I S T</a> 
+		            </li>
+		            <li class="nav-item nodropdown">
+		              <a href="/mypage/getMypage" >마이페이지</a>
+		            </li>
+		            <li class="nav-item dropdown">
+		              <a href="" class="nav-link dropdown-toggle"
+		                data-bs-toggle="dropdown">고객센터</a>
+		                 <div class="dropdown-menu">
+		                    <a href="/board/getNotice" class="dropdown-item">공지사항</a>
+		                    <a href="/board/getFaq" class="dropdown-item">FAQ</a>
+		                    <a href="/board/getAsk" class="dropdown-item">1:1문의</a>
+		                  </div>
+		            </li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		</header>
+	  </body>
+</html>	  
