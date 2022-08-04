@@ -35,7 +35,7 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
-	//효주수정111
+	//효주수정222
 	@GetMapping("/getNotice")
 	public ModelAndView getNoticeView(Notice notice,
 									  @PageableDefault(page = 0, size = 10) Pageable pageable) {
