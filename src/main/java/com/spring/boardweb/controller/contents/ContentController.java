@@ -26,8 +26,8 @@ public class ContentController {
 	
 		JSONObject contentObject = movieInfoApi.searchMovieInfo(movieCode);
 		//System.out.println(contentObject);
-
-		ModelAndView mv = new ModelAndView();
+		//dddd
+		ModelAndView mv = new ModelAndView(); 
 		mv.addObject("content", contentObject.toString());
 		mv.setViewName("contents/getContent.html");
 		return mv;
