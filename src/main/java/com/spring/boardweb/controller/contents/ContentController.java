@@ -35,6 +35,7 @@ public class ContentController {
 		mv.addObject("content", contentObject.toString());
 		mv.setViewName("contents/getContent.html");
 		return mv;
+		
 	}
 	
 	
