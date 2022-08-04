@@ -15,7 +15,7 @@ import com.spring.boardweb.controller.api.KobisSearchMovieListApi;
 @RequestMapping("/contents")
 public class ContentController {
 	
-	//깃 연습 - cyh
+
 
 	@GetMapping("/getContent/{contentTitle}")
 	public ModelAndView getContentView(@PathVariable String contentTitle) throws ParseException {
@@ -27,11 +27,8 @@ public class ContentController {
 	
 		JSONObject contentObject = movieInfoApi.searchMovieInfo(movieCode);
 		//System.out.println(contentObject);
-		//dddd
-		//aaaaaaadfasdfa
-		//nananana
-		//깃 연습 - cyh
-		//skdjljiajosdjfdk
+		
+		//효주수정
 		ModelAndView mv = new ModelAndView(); 
 		mv.addObject("content", contentObject.toString());
 		mv.setViewName("contents/getContent.html");
