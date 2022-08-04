@@ -15,6 +15,7 @@ import com.spring.boardweb.controller.api.KobisSearchMovieListApi;
 @RequestMapping("/contents")
 public class ContentController {
 	
+	//깃 연습 - cyh
 
 	@GetMapping("/getContent/{contentTitle}")
 	public ModelAndView getContentView(@PathVariable String contentTitle) throws ParseException {
