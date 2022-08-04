@@ -29,6 +29,7 @@ public class ContentController {
 		//System.out.println(contentObject);
 		//dddd
 		//nananana
+		//깃 연습 - cyh
 		ModelAndView mv = new ModelAndView(); 
 		mv.addObject("content", contentObject.toString());
 		mv.setViewName("contents/getContent.html");
