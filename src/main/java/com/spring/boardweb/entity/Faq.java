@@ -13,7 +13,7 @@ import javax.persistence.Transient;
 import lombok.Data;
 
 @Entity
-@Table(name="M_FAQ")
+@Table(name="T_MOOD_FAQ")
 @Data
 @SequenceGenerator(
 		name="M_FAQ_SEQ_GENERATOR", //name: SequenceGenerator의 이름을 지정
