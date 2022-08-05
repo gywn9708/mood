@@ -1,5 +1,7 @@
 package com.spring.boardweb.service.user.impl;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,8 +10,7 @@ import com.spring.boardweb.repository.UserRepository;
 import com.spring.boardweb.service.user.UserService;
 
 @Service
-public class UserServiceImpl implements UserService{
-
+public class UserServiceImpl implements UserService {
 	@Autowired
 	UserRepository userRepository;
 	
@@ -17,7 +18,7 @@ public class UserServiceImpl implements UserService{
 	public void join(User user) {
 		userRepository.save(user);
 	}
-
+	
 	@Override
 	public User idCheck(String userId) {
 		if(userRepository.findById(userId).isPresent()) {
@@ -26,5 +27,16 @@ public class UserServiceImpl implements UserService{
 			return null;
 		}
 	}
-
+	
+	@Override
+	public void updateMypage(User user) {
+		userRepository.save(user);
+	}
+	
+	@Override
+	public User getMypage(String userId) {
+		return userRepository.findById(userId).get();
+	}
+	
+	
 }

@@ -1,210 +1,226 @@
 <!DOCTYPE html>
-<html lang="ko"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layouts/layout}">
-	<head>
-		<meta charset="UTF-8">
-		<title>게시글</title>
-		
-		<th:block layout:fragment="css">
-			<link rel="stylesheet" th:href="@{/css/mypage.css}">
-		</th:block>
-		
-		<th:block layout:fragment="script">
-	  		<script th:src="@{/js/mypage.js}"></script>
-	  		
-	  	</th:block>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
 
-		
-	</head>
-	
-	<body>
-		<header></header>
-		<div layout:fragment="content">
-		
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/mypage.css}">
+	</th:block>
+	<th:block layout:fragment="script">
+		<script th:src="@{/js/mypage.js}"></script>
+	</th:block>
+
+</head>
+
+<body>
+	<div layout:fragment="content">
+	<form id="updateForm" action="/user/updateMypage" method="post">
 		<div id="container">
-        <div id="info">
-            <div id="photo">
-            <!--프로필 사진-->    
-                <div class="image-container">
-                    <label for="input-image">
-                        <img style="width: 350px; height: 350px;margin-left: 80px;" id="preview-image" src="/images/user_profile.png">
-                    </label>
-                        <input style="display: none;" type="file" id="input-image" accept="image/png, image/jpeg">
-                </div>
-            </div>
-                <div id="idPassword">
-                <!--회원정보-->    
-                    <table>
-                        <tr class="space">
-                            <th>아이디</th>
-                            <td th:text="${session.loginUser.userId}"></td>
-                        <tr>
-                            <th>이름 </th>
-                            <td th:text="${session.loginUser.userNm}"></td>
-                        </tr>
-                        <tr>
-                            <th>닉네임</th>
-                            <td th:text="${session.loginUser.userNickNm}"></td>
-                        </tr>
-                        <tr>
-                            <th>휴대전화</th>
+			<div id="info">
+				<div id="photo">
+					<!--프로필 사진-->
+					<div class="image-container">
+						<label for="input-image">
+							<img style="width: 350px; height: 350px;margin-left: 80px;" id="preview-image"
+								src="/images/user_profile.png">
+						</label>
+						<input style="display: none;" type="file" id="input-image" accept="image/png, image/jpeg">
+					</div>
+				</div>
+				<div id="idPassword">
+					<!--회원정보-->
+					<table>
+						<tr class="space">
+							<th>아이디</th>
+							<td th:text="${session.loginUser.userId}"></td>
+						<tr>
+							<th>이름 </th>
+							<td th:text="${session.loginUser.userNm}"></td>
+						</tr>
+						<tr>
+							<th>닉네임</th>
+							<td th:text="${session.loginUser.userNickNm}"></td>
+						</tr>
+						<tr>
+							<th>휴대전화</th>
 							<td th:text="${session.loginUser.userTel}"></td>
-                        </tr>
-                        <tr>
-                            <th>이메일</th>
-                            <td th:text="${session.loginUser.userMail}"></td>
-                        </tr> 
-                       
-                        <tr id="ci">
-                            <th><button class="btn btn-primary" type="button"
-                                data-bs-toggle="modal" data-bs-target="#intro">
-                                    회원정보 수정
-                                </button>
-                                <div class="modal fade" id="intro">
-                                <!-- modal-dialog : 모달 창 영역 설정-->
-                                    <div class="modal-dialog">
-                                        <!--modal-dialog : 모달 콘텐트 영역 설정-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">회원정보 수정</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <label class="label-t"for="">비밀번호 &nbsp;&nbsp;<input  type="text"></label>
-                                                <br>
-                                                <label class="label-t" for="">닉네임 &nbsp;&nbsp;<input class="input-text" type="text"></label>
-                                                <br>
-                                                <label class="label-t" for="">휴대전화 &nbsp;&nbsp;<input type="text"></label>
-                                                <br>
-                                                <label class="label-t" for="">이메일 &nbsp;&nbsp;<input class="input-text" type="text"></label>
-                                            
-                                                <div class="modal-footer">
-                                                    <!--알림창 생성-->
-                                                    <button class="btn btn-primary" type="button"
-                                                    data-bs-toggle="modal" data-bs-target="#intro"
-                                                    onclick="test()">
-                                                             확인  
-                                                    </button> 
-                                                </div>
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </th>
-                        </tr>
-                    </table> 
-                    
-            </div>
-        </div>
-        
-        <div id="contents">
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td th:text="${session.loginUser.userMail}"></td>
+						</tr>
 
-            <div id="list">
-            <!--나만의 리스트-->    
-                <div class="list-text"><b>M O O D L I S T</b>  &nbsp; &nbsp; &nbsp;-최근 찜한 영화</div>
-                <div class="profile">
-                    <div class="main-carousel1">
-                        <div class="mySlides1 fate1">
-                            <div class="devide1">
-                                <a href="detail_쥬라기.html">
-                                    <img id="class1" src="/images/movie/쥬라기월드_포스터.jpeg" alt="">
-                                </a>
-                                <a href="detail_마녀2.html">
-                                    <img id="class2" src="/images/movie/마녀2_포스터.jpg" alt="">
-                                </a>
-                                <a href="detail_미나리.html">
-                                    <img id="class3" src="/images/movie/미나리_포스터.jfif" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mySlides1 fate1">
-                            <div class="devide1">
-                                <a href="#">
-                                    <img id="class1" src="/images/movie/닥스_포스터.jfif" alt="">
-                                </a>
-                                <a href="#">
-                                    <img id="class1" src="/images/movie/루카_포스터.jfif" alt="">
-                                </a>
-                                <a href="#">
-                                    <img id="class1" src="/images/movie/범죄도시_포스터.jfif" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mySlides1 fate1">
-                            <div class="devide1">
-                                <a href="#">
-                                    <img id="class1" src="/images/movie/헤어질결심_포스터.jfif" alt="">
-                                </a>
-                                <a href="#">
-                                    <img id="class1" src="/images/movie/나를찾아줘_포스터.jfif" alt="">
-                                </a>
-                                <a href="#">
-                                    <img id="class1" src="/images/movie/스펀지밥_포스터.jfif" alt="">
-                                </a>
-                            </div>
-                        </div>
-                                 
-                        <a class="prev">❮</a>
-                        <a class="next">❯</a>
-                    </div>
-                </div>
-            </div>
-            <div id="review">
-                <!--나만의 리뷰-->
-                <div class="review-text"><b>R E V I E W</b> &nbsp; &nbsp; &nbsp; &nbsp;-최근 등록한 리뷰</div>
-                    <div class="profile">
-                        <div class="main-carousel">
-                            <div class="mySlides fate">
-                                <div class="devide">
-                                    <a href="detail_쥬라기.html">
-                                        <img id="class1" src="/images/movie/쥬라기월드_포스터.jpeg" alt="">
-                                    </a>
-                                    <a href="detail_마녀2.html">
-                                        <img id="class2" src="/images/movie/마녀2_포스터.jpg" alt="">
-                                    </a>
-                                    <a href="detail_미나리.html">
-                                        <img id="class3" src="/images/movie/미나리_포스터.jfif" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="mySlides fate">
-                                <div class="devide">
-                                    <a href="#">
-                                        <img id="class1" src="/images/movie/닥스_포스터.jfif" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <img id="class1" src="/images/movie/루카_포스터.jfif" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <img id="class1" src="/images/movie/범죄도시_포스터.jfif" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="mySlides fate">
-                                <div class="devide">
-                                    <a href="#">
-                                        <img id="class1" src="/images/movie/헤어질결심_포스터.jfif" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <img id="class1" src="/images/movie/나를찾아줘_포스터.jfif" alt="">
-                                    </a>
-                                    <a href="#">
-                                        <img id="class1" src="/images/movie/스펀지밥_포스터.jfif" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <a class="prev">❮</a>
-                            <a class="next">❯</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>	
-        	
+						<tr id="ci">
+							<th><button class="btn btn-primary" type="button" data-bs-toggle="modal"
+									data-bs-target="#intro">
+									회원정보 수정
+								</button>
+								<div class="modal fade" id="intro">
+									<!-- modal-dialog : 모달 창 영역 설정-->
+									<div class="modal-dialog">
+										<!--modal-dialog : 모달 콘텐트 영역 설정-->
+										<div class="modal-content">
+											
+												<div class="modal-header">
+													<h4 class="modal-title">회원정보 수정</h4>
+												</div>
+												<input type="hidden" id="userId" name="userId" th:value="${session.loginUser.userId}">
+												<input type="hidden" id="userNm" name="userNm" th:value="${session.loginUser.userNm}">
+												<input type="hidden" id="userBirth" name="userBirth" th:value="${session.loginUser.userBirth}">
+												<input type="hidden" id="userGender" name="userGender" th:value="${session.loginUser.userGender}">
+												
+												<div class="modal-body">
+													<div>	
+													<label class="label-t" for="">비밀번호 &nbsp;&nbsp;</label>
+													</div>	
+													<input id="userPw" name="userPw" class="input-text"
+														type="text" th:value="${session.loginUser.userPw}">
+													<br>
+												<div>
+													<label id="userNickNm" class="label-t" for="userNickNm">닉네임&nbsp;&nbsp;</label>
+												</div>
+													<input id="userNickNm" name="userNickNm" class="input-text"
+														type="text" th:value="${session.loginUser.userNickNm}">
+													<br>
+												<div>	
+													<label class="label-t" for="">휴대전화 &nbsp;&nbsp;</label>
+												</div>
+													<input id="userTel" name="userTel" class="input-text"
+														type="text" th:value="${session.loginUser.userTel}">
+													<br>
+												<div>
+													<label class="label-t" for="">이메일 &nbsp;&nbsp;</label>
+												</div>	
+													<input id="userMail" name="userMail" class="input-text"
+														type="text" th:value="${session.loginUser.userMail}">
+
+													<div class="modal-footer">
+														<!--알림창 생성-->
+														<button class="btn btn-primary" type="submit"
+															data-bs-toggle="modal" data-bs-target="#intro"
+															onclick="test()">
+															확인
+														</button>
+													</div>
+													</div>	
+												
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</th>
+						</tr>
+					</table>
+				</div>
+			
+
+	<div id="contents">
+
+		<div id="list">
+			<!--나만의 리스트-->
+			<div class="list-text"><b>M O O D L I S T</b> &nbsp; &nbsp; &nbsp;-최근 찜한 영화</div>
+			<div class="profile">
+				<div class="main-carousel1">
+					<div class="mySlides1 fate1">
+						<div class="devide1">
+							<a href="detail_쥬라기.html">
+								<img id="class1" src="/images/movie/쥬라기월드_포스터.jpeg" alt="">
+							</a>
+							<a href="detail_마녀2.html">
+								<img id="class2" src="/images/movie/마녀2_포스터.jpg" alt="">
+							</a>
+							<a href="detail_미나리.html">
+								<img id="class3" src="/images/movie/미나리_포스터.jfif" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="mySlides1 fate1">
+						<div class="devide1">
+							<a href="#">
+								<img id="class1" src="/images/movie/닥스_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/루카_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/범죄도시_포스터.jfif" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="mySlides1 fate1">
+						<div class="devide1">
+							<a href="#">
+								<img id="class1" src="/images/movie/헤어질결심_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/나를찾아줘_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/스펀지밥_포스터.jfif" alt="">
+							</a>
+						</div>
+					</div>
+
+					<a class="prev">❮</a>
+					<a class="next">❯</a>
+				</div>
+			</div>
 		</div>
-		<footer></footer>
-	</body>
+		<div id="review">
+			<!--나만의 리뷰-->
+			<div class="review-text"><b>R E V I E W</b> &nbsp; &nbsp; &nbsp; &nbsp;-최근 등록한 리뷰</div>
+			<div class="profile">
+				<div class="main-carousel">
+					<div class="mySlides fate">
+						<div class="devide">
+							<a href="detail_쥬라기.html">
+								<img id="class1" src="/images/movie/쥬라기월드_포스터.jpeg" alt="">
+							</a>
+							<a href="detail_마녀2.html">
+								<img id="class2" src="/images/movie/마녀2_포스터.jpg" alt="">
+							</a>
+							<a href="detail_미나리.html">
+								<img id="class3" src="/images/movie/미나리_포스터.jfif" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="mySlides fate">
+						<div class="devide">
+							<a href="#">
+								<img id="class1" src="/images/movie/닥스_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/루카_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/범죄도시_포스터.jfif" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="mySlides fate">
+						<div class="devide">
+							<a href="#">
+								<img id="class1" src="/images/movie/헤어질결심_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/나를찾아줘_포스터.jfif" alt="">
+							</a>
+							<a href="#">
+								<img id="class1" src="/images/movie/스펀지밥_포스터.jfif" alt="">
+							</a>
+						</div>
+					</div>
+							<a class="prev">❮</a>
+							<a class="next">❯</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
 </html>
