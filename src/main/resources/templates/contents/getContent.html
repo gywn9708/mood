@@ -21,41 +21,68 @@
 		  			
 		  			const data = JSON.parse(content);
 		  			
+		  			let vwatchGradeNm = "";
+		  			let genreNm = "";
+		  			let nationNm = "";
+		  			let showTm = "";
+		  			let cast = "";
+		  			let companyNm ="";
+		  			let peopleNm ="";
+		  			let actorpeopleNm = "";
+		  			
 		  			console.log(content);
 		  			
-		  			
 		  			$("#movieNm").text(data.movieNm);
-					
-					/*	
-		  			for(let i =0; i < data.actors.length; i++) {
-						actors += data.actors[i].peopleNm + ', ';
+		  			
+		  			$("#openDt").text(data.openDt);
+		  			
+		  			for(let i=0; i<data.audits.length; i++) {
+						watchGradeNm = data.audits[i].watchGradeNm;
 					}
-		  			$("#actors").text(actors);
-		  			*/
+					$("#watchGradeNm").text(watchGradeNm);
 		  			
+		  			for(let i=0; i<data.genres.length; i++) {
+						genreNm = data.genres[i].genreNm;
+					}
+					$("#genreNm").text(genreNm);
 		  			
+		  			for(let i=0; i<data.nations.length; i++) {
+						nationNm = data.nations[i].nationNm;
+					}
+					$("#nationNm").text(nationNm);
+					
+		  			$("#showTm").text(data.showTm + '분');
+		  			
+	
+					for(let i=0; i<data.companys.length; i++) {
+						companyNm = data.companys[i].companyNm;
+					}
+					$("#companyNm").text(companyNm);
+						
+					for(let i=0; i<data.directors.length; i++) {
+						peopleNm = data.directors[i].peopleNm
+					}
+					$("#peopleNm").text(peopleNm);
+
+		  			for(let i=0; i < 9; i++) {
+						for(let z = 0; z < 9; z++){
+							if(i = z) {
+								actorpeopleNm += data.actors[i].peopleNm + "(" + data.actors[z].cast + '역), ';
+							}
+						}
+					}
+					
+					for(let i=9; i < 10; i++) {
+						for(let z = 9; z < 10; z++) {
+							actorpeopleNm2 = data.actors[i].peopleNm + "(" + data.actors[z].cast + '역) 그 외...';
+						}	
+					}
+		  			$("#result").text(actorpeopleNm + actorpeopleNm2);
+		  			
+		  			//$("#actors").text(data.actors[1].peopleNm);
 	  			});
 	  		</script>
-	  		<!-- 네이버 api는 화면단에서 곧바로 요청할 수 없다. 
-	  		<script>
-		  	$(function(){
-				$.ajax({
-						method: "GET",
-						url: "https://openapi.naver.com/v1/search/movie.json",
-						headers:  {	"X-Naver-Client-Id": "B2rwTIEml6zR5U92Oulb",
-								   	"X-Naver-Client-Secret": "TQbMkXENaW"},
-						contentType: "application/json; charset=utf-8",                  
-		                data: JSON.parse(JSON.stringify({query: "마녀"})),
-		                dataType: 'json',
-						success: function(response) {
-							console.log(JSON.stringify(response));
-						},
-						error: (xhr, e) => {console.log(e);
-						console.log(xhr)}
-				});
-			});
-	  		</script>
-	  		-->
+
 	  	
 	  	</th:block>
 
@@ -88,67 +115,43 @@
 	                        <table>
 	                            <tr>
 	                                <th>개봉</th>
-	                                <td ></td>
+	                                <td id= "openDt"></td>
 	                            </tr>
 	                            <tr>
 	                                <th>등급</th>
-	                                <td>
-	                                	dd
-	                                </td>
+	                                <td id="watchGradeNm"></td>
 	                            </tr>
 	                            <tr>
 	                                <th>장르</th>
-	                                <td>드라마</td>
+	                                <td id="genreNm"></td>
 	                            </tr>
 	                            <tr>
 	                                <th>국가</th>
-	                                <td>한국</td>
-	                            </tr>
-	                            <tr>
-	                                <th>등급</th>
-	                                <td>15세 관람가</td>
-	                            </tr>
+	                                <td id="nationNm"></td>
+	                            </tr>  
 	                            <tr>
 	                                <th>러닝타임</th>
-	                                <td>131분</td>
+	                                <td id= "showTm"></td>
 	                            </tr>
 	                            <tr>
 	                                <th>배급</th>
-	                                <td>CJ ENM</td>
+	                                <td id="companyNm"></td>
 	                            </tr>
 	                        </table>
 	                    </div>
 	                    <div id="tab-2" class="tab-content">
 	                        <!--탭 메뉴 내용2-->
 	                        <ul>
-	                            <li>감독</li>
-	                            <li>
-	                                <img src="/images/movie/person.png">
+	                            <li style="font-weight: bold;">감독</li>
+	                            <li id="peopleNm">
 	                            </li>
-	                            <li>주연</li>
-	                            <li>
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                            </li>
-	                            <li>조연</li>
-	                            <li>
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                            </li>
-	                            <li>단역</li>
-	                            <li>
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                            </li>
-	                            <li>특별출연</li>
-	                            <li>
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                                <img src="/images/movie/person.png">
-	                            </li>
+	                            <br>
+	                            <li style="font-weight: bold;">출연</li>
+	                            <li id="result">
+	                         	
+	                            </li> 
+	                            	
+	                             
 	                        </ul>
 	                    </div>
 	
@@ -324,7 +327,6 @@
 	                            </div>
 	                        </th>
 	                        <td>
-	                            <div>
 	                            모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포ㆍ구속ㆍ압수ㆍ수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 의하지 아니하고는 처벌ㆍ보안처분 또는 강제노역을 받지 아니한다.
 	                            모든 국민은 고문을 받지 아니하며, 형사상 자기에게 불리한 진술을 강요당하지 아니한다.
 	                            체포ㆍ구속ㆍ압수 또는 수색을 할 때에는 적법한 절차에 따라 검사의 신청에 의하여 법관이 발부한 영장을 제시하여야 한다. 다만, 현행범인인 경우와 장기 3년 이상의 형에 해당하는 죄를 범하고 도피 또는 증거인멸의 염려가 있을 때에는 사후에 영장을 청구할 수 있다.
@@ -332,14 +334,6 @@
 	                            누구든지 체포 또는 구속의 이유와 변호인의 조력을 받을 권리가 있음을 고지받지 아니하고는 체포 또는 구속을 당하지 아니한다. 체포 또는 구속을 당한 자의 가족등 법률이 정하는 자에게는 그 이유와 일시ㆍ장소가 지체없이 통지되어야 한다.
 	                            누구든지 체포 또는 구속을 당한 때에는 적부의 심사를 법원에 청구할 권리를 가진다.
 	                            피고인의 자백이 고문ㆍ폭행ㆍ협박ㆍ구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다.
-	                            </div>
-	                            
-	                            <div>
-	                            	<button type="button" id="update-button" class="btn btn-danger">수정하기</button>
-	                            	<button type="button" id="delete-button" class="btn btn-danger">삭제하기</button>
-	                            </div>
-	                            
-	                            
 	                        </td>
 	                    </tr>
 	                </table>
@@ -351,11 +345,7 @@
 	            <div class="sa sa-up" id="red-chairs" ></div>
 	        </section>
 	    </div>
-			
-			
-			
-			
-		
+
 		</div>
 		<footer></footer>
 		
