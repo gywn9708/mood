@@ -66,9 +66,6 @@ public class NaverMovieApi {
         return infoArray;
   }
     
-    
-    
- 
     private static String get(String apiUrl, Map<String, String> requestHeaders){
         HttpURLConnection con = connect(apiUrl);
         try {
