@@ -98,6 +98,6 @@ public class UserController {
 		
 		session.setAttribute("loginUser", loginUser);
 
-		response.sendRedirect("/mypage/mypage");
+		response.sendRedirect("/mypage/getMypage");
 	}
 }

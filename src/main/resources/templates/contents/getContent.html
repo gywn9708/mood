@@ -23,6 +23,7 @@
 		  			
 		  			console.log(content);
 		  			
+		  			$("#movieCd").text(data.movieCd);
 		  			
 		  			$("#movieNm").text(data.movieNm);
 					
@@ -273,7 +274,9 @@
 	                    <tr>
 	                        <th>
 	                            <img src="/images/user_profile.png" width="180px" height="180px" alt="사용자 프로필 사진">
-	                            <p>김비트 님</p>
+	                            <p>
+	                            	<input type="text" name="userId" id="userId" th:value="${loginUser.userId}" readonly>
+	                            </p>
 	                            <!--별점 매기기-->
 	                            <div class="rating-star">
 	                                <span class="starR1 on">별1_왼쪽</span>
@@ -293,9 +296,11 @@
 	                            <form action="#" method="post">
 	                                <div>
 	                                    <label for="my-review">나의 리뷰</label>
-	                                    <textarea id="my-review" name="my-review" placeholder="리뷰를 입력하세요."></textarea><br>
+	                                    <input name="movieCd" type="hidden" id="movieCd">
+	                                    <input name="reviewRate" type="hidden" value="5">
+	                                    <textarea name="reviewContent" id="my-review" placeholder="리뷰를 입력하세요."></textarea><br>
 	                                </div>
-	                                <button type="button" id="submit-button" class="btn btn-third">등록하기</button>
+	                                <button type="submit" id="submit-button" class="btn btn-third">등록하기</button>
 	                            </form>
 	                        </td>
 	                    </tr>

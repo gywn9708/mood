@@ -9,7 +9,7 @@ import javax.persistence.Transient;
 import lombok.Data;
 
 @Entity //이 객체가 엔티티 객체임을 선언함, 필수 값!
-@Table(name="M_USER")//필수 값은 아님. 객체명과 테이블명이 다를 때 테이블명을 지정하기 위해 사용한다. 
+@Table(name="T_MOOD_USER")//필수 값은 아님. 객체명과 테이블명이 다를 때 테이블명을 지정하기 위해 사용한다. 
 @Data 
 public class User {
 	
